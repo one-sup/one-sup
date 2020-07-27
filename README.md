@@ -1,8 +1,6 @@
 # One Sup - Microsoft Teams App
 
-Generate a Microsoft Teams application.
-
-TODO: Add your documentation here
+Meet new people across the company and learn what’s on their mind through randomised diverse virtual standups.
 
 ## Getting started with Microsoft Teams Apps development
 
