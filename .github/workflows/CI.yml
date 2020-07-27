@@ -16,7 +16,6 @@ jobs:
       - name: Create Build
         run: |
           gulp build
-          gulp manifest
         env: 
           PACKAGE_NAME: onesup
           HOSTNAME: onesup.azurewebsites.net

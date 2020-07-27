@@ -1,4 +1,4 @@
-name: Build Website For Production
+name: Deploy to AppServices
 
 on:
   push:
@@ -27,7 +27,6 @@ jobs:
     - name: Create Build
       run: |
         gulp build
-        gulp manifest
       env: 
         PACKAGE_NAME: onesup
         HOSTNAME: onesup.azurewebsites.net
@@ -41,6 +40,6 @@ jobs:
       run: |
         git checkout -b deploy
         git remote add azure https://$AZURE_ACCESS_TOKEN@onesup.scm.azurewebsites.net:443/onesup.git
-        git push deploy azure:master
+        git push azure deploy:master
       env:
         AZURE_ACCESS_TOKEN: ${{ secrets.AZURE_ACCESS_TOKEN }}
