@@ -12,9 +12,11 @@ jobs:
           node-version: "12.x"
 
       - run: yarn install
-      - run: gulp build
 
-      - run: gulp manifest
+      - name: Create Build
+        run: |
+          gulp build
+          gulp manifest
         env: 
           PACKAGE_NAME: onesup
           HOSTNAME: onesup.azurewebsites.net

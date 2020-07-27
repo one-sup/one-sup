@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,10 +23,11 @@ jobs:
     - name: Build Teams App
       run: |
         yarn install
-        gulp build
 
-    - name: Generate Manifest
-      run: gulp manifest
+    - name: Create Build
+      run: |
+        gulp build
+        gulp manifest
       env: 
         PACKAGE_NAME: onesup
         HOSTNAME: onesup.azurewebsites.net
