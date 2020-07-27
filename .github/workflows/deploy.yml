@@ -36,7 +36,6 @@ jobs:
         SUPBOT_APP_ID: ${{ secrets.SUPBOT_APP_ID }}
         SUPBOT_APP_URI: ${{ secrets.SUPBOT_APP_URI }}
 
-    - run: "rm -rf node_modules"
     - name: Run Azure webapp deploy action using publish profile credentials
       uses: azure/webapps-deploy@v2
       with: 
