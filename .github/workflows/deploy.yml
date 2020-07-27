@@ -39,7 +39,8 @@ jobs:
 
     - name: Deploy
       run: |
+        git checkout -b deploy
         git remote add azure https://$AZURE_ACCESS_TOKEN@onesup.scm.azurewebsites.net:443/onesup.git
-        git push azure
+        git push deploy azure:master
       env:
         AZURE_ACCESS_TOKEN: ${{ secrets.AZURE_ACCESS_TOKEN }}
