@@ -36,12 +36,8 @@ jobs:
         SUPBOT_APP_ID: ${{ secrets.SUPBOT_APP_ID }}
         SUPBOT_APP_URI: ${{ secrets.SUPBOT_APP_URI }}
 
-    - name: Deploy
-      run: |
-        git checkout -b deploy
-        git remote add azure https://\$onesup:$AZURE_ACCESS_TOKEN@onesup.scm.azurewebsites.net:443/onesup.git
-
-
-        git push azure deploy:master
-      env:
-        AZURE_ACCESS_TOKEN: ${{ secrets.AZURE_ACCESS_TOKEN }}
+    - name: Run Azure webapp deploy action using publish profile credentials
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: onesup
+        publish-profile: ${{ secrets.APP_SERVICE_PUBLISH_PROFILE }}
