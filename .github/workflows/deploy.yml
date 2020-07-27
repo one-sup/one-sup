@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,12 +23,23 @@ jobs:
     - name: Build Teams App
       run: |
         yarn install
+
+    - name: Create Build
+      run: |
         gulp build
         gulp manifest
+      env: 
+        PACKAGE_NAME: onesup
+        HOSTNAME: onesup.azurewebsites.net
+        APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+        MICROSOFT_APP_ID: ${{ secrets.MICROSOFT_APP_ID }}
+        CONNECTOR_ID: ${{ secrets.CONNECTOR_ID }}
+        SUPBOT_APP_ID: ${{ secrets.SUPBOT_APP_ID }}
+        SUPBOT_APP_URI: ${{ secrets.SUPBOT_APP_URI }}
 
     - name: Deploy
       run: |
-        git remote add azure https://onesup:$AZURE_ACCESS_TOKEN@onesup.scm.azurewebsites.net:443/onesup.git
+        git remote add azure https://$AZURE_ACCESS_TOKEN@onesup.scm.azurewebsites.net:443/onesup.git
         git push azure
       env:
         AZURE_ACCESS_TOKEN: ${{ secrets.AZURE_ACCESS_TOKEN }}
