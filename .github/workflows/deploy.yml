@@ -24,7 +24,17 @@ jobs:
       run: |
         yarn install
         gulp build
-        gulp manifest
+
+    - name: Generate Manifest
+      run: gulp manifest
+      env: 
+        PACKAGE_NAME: onesup
+        HOSTNAME: onesup.azurewebsites.net
+        APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+        MICROSOFT_APP_ID: ${{ secrets.MICROSOFT_APP_ID }}
+        CONNECTOR_ID: ${{ secrets.CONNECTOR_ID }}
+        SUPBOT_APP_ID: ${{ secrets.SUPBOT_APP_ID }}
+        SUPBOT_APP_URI: ${{ secrets.SUPBOT_APP_URI }}
 
     - name: Deploy
       run: |
