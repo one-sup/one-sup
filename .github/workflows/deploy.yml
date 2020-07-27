@@ -1,0 +1,34 @@
+name: Build Website For Production
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
+
+    - name: Setup Git Metadata
+      run: |      
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+
+    - name: Build Teams App
+      run: |
+        yarn install
+        gulp build
+        gulp manifest
+
+    - name: Deploy
+      run: |
+        git remote add azure https://onesup:$AZURE_ACCESS_TOKEN@onesup.scm.azurewebsites.net:443/onesup.git
+        git push azure
+      env:
+        AZURE_ACCESS_TOKEN: ${{ secrets.AZURE_ACCESS_TOKEN }}

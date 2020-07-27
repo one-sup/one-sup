@@ -4,6 +4,10 @@ A Microsoft hackathon 2020 project to meet new people across the company and lea
 
 This project is based on Artsy’s similarly named project “[s’up](https://github.com/artsy/sup)”, but built on MS infrastructure and for MS scale.
 
+- **URLs:** [production](https://www.typescriptlang.org)
+- **Admin:** Prod: [Resource Group](https://portal.azure.com/?quickstart=true#@msnortatherox.onmicrosoft.com/resource/subscriptions/fde7b4d5-654e-4aa5-8633-fa9c0ade65f2/resourceGroups/one-sup/overview), [Bot Registration](https://portal.azure.com/?quickstart=true#@msnortatherox.onmicrosoft.com/resource/subscriptions/fde7b4d5-654e-4aa5-8633-fa9c0ade65f2/resourceGroups/one-sup/providers/Microsoft.BotService/botServices/sup-bot/overview), [App Insights](https://portal.azure.com/?quickstart=true#@msnortatherox.onmicrosoft.com/resource/subscriptions/fde7b4d5-654e-4aa5-8633-fa9c0ade65f2/resourceGroups/one-sup/providers/microsoft.insights/components/sup-botidcgcc/overview)
+
+
 ## No one is an island.
 
 A human connection is often the first step toward new inspiration and motivation towards changes that truly affect real people and their situation.
