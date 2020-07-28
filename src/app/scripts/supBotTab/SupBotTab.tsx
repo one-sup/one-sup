@@ -43,6 +43,7 @@ export class SupBotTab extends TeamsBaseComponent<ISupBotTabProps, ISupBotTabSta
                     },
                     failureCallback: (message: string) => {
                         this.setState({ error: message });
+                        console.log("failed", message)
                         microsoftTeams.appInitialization.notifyFailure({
                             reason: microsoftTeams.appInitialization.FailedReason.AuthFailed,
                             message
