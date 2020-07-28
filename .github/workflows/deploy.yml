@@ -20,9 +20,6 @@ jobs:
       run: |
         cd packages/bot
         yarn install
-
-    - name: Create Build
-      run: |
         gulp build
       env: 
         PACKAGE_NAME: onesup
@@ -38,3 +35,4 @@ jobs:
       with: 
         app-name: onesup
         publish-profile: ${{ secrets.APP_SERVICE_PUBLISH_PROFILE }}
+        package: packages/bot
