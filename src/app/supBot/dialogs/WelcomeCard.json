@@ -8,7 +8,7 @@
         "spacing": "medium",
         "size": "default",
         "weight": "bolder",
-        "text": "Welcome to One Sup",
+        "text": "Welcome to sup-teams-bot",
         "wrap": true,
         "maxLines": 0
       },
@@ -29,7 +29,7 @@
       },
       {
         "type": "Action.OpenUrl",
-        "title": "One Sup",
+        "title": "sup-teams-bot",
         "url": "https://onesup.azurewebsites.net"
       }
     ]

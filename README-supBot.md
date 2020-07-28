@@ -1,4 +1,4 @@
-# Sup Bot - `supBot`
+# sup-bot - `supBot`
 
 ## How to register the bot in the Bot Framework portal
 

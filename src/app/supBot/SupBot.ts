@@ -3,27 +3,22 @@ import * as debug from "debug";
 import { DialogSet, DialogState } from "botbuilder-dialogs";
 import { StatePropertyAccessor, CardFactory, TurnContext, MemoryStorage, ConversationState, ActivityTypes, TeamsActivityHandler } from "botbuilder";
 import HelpDialog from "./dialogs/HelpDialog";
-import SupMessagesMessageExtension from "../supMessagesMessageExtension/SupMessagesMessageExtension";
 import WelcomeCard from "./dialogs/WelcomeDialog";
 
 // Initialize debug logging module
 const log = debug("msteams");
 
 /**
- * Implementation for Sup Bot
+ * Implementation for sup-bot
  */
 @BotDeclaration(
     "/api/messages",
     new MemoryStorage(),
     process.env.MICROSOFT_APP_ID,
     process.env.MICROSOFT_APP_PASSWORD)
-@PreventIframe("/supBot/aboutSupBot.html")
 
 export class SupBot extends TeamsActivityHandler {
     private readonly conversationState: ConversationState;
-    /** Local property for SupMessagesMessageExtension */
-    @MessageExtensionDeclaration("supMessagesMessageExtension")
-    private _supMessagesMessageExtension: SupMessagesMessageExtension;
     private readonly dialogs: DialogSet;
     private dialogState: StatePropertyAccessor<DialogState>;
 
@@ -33,15 +28,14 @@ export class SupBot extends TeamsActivityHandler {
      */
     public constructor(conversationState: ConversationState) {
         super();
-        // Message extension SupMessagesMessageExtension
-        this._supMessagesMessageExtension = new SupMessagesMessageExtension();
-
+        
         this.conversationState = conversationState;
         this.dialogState = conversationState.createProperty("dialogState");
         this.dialogs = new DialogSet(this.dialogState);
         this.dialogs.add(new HelpDialog("help"));
 
         // Set up the Activity processing
+
         this.onMessage(async (context: TurnContext): Promise<void> => {
             // TODO: add your own bot logic in here
             switch (context.activity.type) {
@@ -85,7 +79,7 @@ export class SupBot extends TeamsActivityHandler {
                 });
             }
         });;
-    }
+   }
 
 
 }

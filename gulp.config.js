@@ -51,7 +51,7 @@ const config = {
     }
     ],
     // This is the name of the packaged manifest file
-    manifestFileName: "one-sup.zip"
+    manifestFileName: "sup-teams-bot.zip"
 };
 
 module.exports = config;

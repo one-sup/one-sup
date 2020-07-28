@@ -1,5 +1,5 @@
 {
-  "name": "onesup",
+  "name": "supteamsbot",
   "version": "0.0.1",
   "description": "Generate a Microsoft Teams application.",
   "scripts": {
@@ -21,14 +21,7 @@
     "express-msteams-host": "1.6.2",
     "express-session": "1.15.6",
     "morgan": "1.9.1",
-    "msteams-react-base-component": "^2.1.0",
-    "applicationinsights": "^1.3.1",
-    "@fluentui/react-northstar": "~0.49.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "jsonwebtoken": "^8.5.1",
-    "node-json-db": "0.7.5",
-    "botbuilder-teams-messagingextensions": "1.6.0"
+    "applicationinsights": "^1.3.1"
   },
   "devDependencies": {
     "@types/debug": "4.1.2",
@@ -69,11 +62,7 @@
     "webpack": "4.26.0",
     "yargs": "15.3.1",
     "z-schema": "^4.2.2",
-    "tslint-loader": "^3.6.0",
-    "@types/react": "16.8.10",
-    "file-loader": "1.1.11",
-    "typestyle": "2.0.1",
-    "@types/node-json-db": "0.0.1"
+    "tslint-loader": "^3.6.0"
   },
   "browserslist": [
     "> 1%",

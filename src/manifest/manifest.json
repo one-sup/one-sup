@@ -11,8 +11,8 @@
     "termsOfUseUrl": "https://{{HOSTNAME}}/tou.html"
   },
   "name": {
-    "short": "One Sup",
-    "full": "One Sup"
+    "short": "sup-teams-bot",
+    "full": "sup-teams-bot"
   },
   "description": {
     "short": "TODO: add short description here",
@@ -23,25 +23,8 @@
     "color": "icon-color.png"
   },
   "accentColor": "#D85028",
-  "configurableTabs": [
-    {
-      "configurationUrl": "https://{{HOSTNAME}}/supBotTab/config.html?name={loginHint}&tenant={tid}&group={groupId}&theme={theme}",
-      "canUpdateConfiguration": true,
-      "scopes": [
-        "team"
-      ]
-    }
-  ],
-  "staticTabs": [
-    {
-      "entityId": "f17028c0-cff8-11ea-a084-75d29c0e3e6d",
-      "name": "About Sup Bot",
-      "contentUrl": "https://{{HOSTNAME}}/supBot/aboutSupBot.html",
-      "scopes": [
-        "personal"
-      ]
-    }
-  ],
+  "configurableTabs": [],
+  "staticTabs": [],
   "bots": [
     {
       "botId": "{{MICROSOFT_APP_ID}}",
@@ -67,36 +50,8 @@
       ]
     }
   ],
-  "connectors": [
-    {
-      "connectorId": "{{CONNECTOR_ID}}",
-      "configurationUrl": "https://{{HOSTNAME}}/oneSupConnector/config.html?name={loginHint}&tenant={tid}&group={groupId}&theme={theme}",
-      "scopes": [
-        "team"
-      ]
-    }
-  ],
-  "composeExtensions": [
-    {
-      "botId": "{{MICROSOFT_APP_ID}}",
-      "canUpdateConfiguration": true,
-      "commands": [
-        {
-          "id": "supMessagesMessageExtension",
-          "title": "Sup Messages",
-          "description": "Add a clever description here",
-          "initialRun": true,
-          "type": "action",
-          "context": [
-            "compose",
-            "commandBox",
-            "message"
-          ],
-          "fetchTask": true
-        }
-      ]
-    }
-  ],
+  "connectors": [],
+  "composeExtensions": [],
   "permissions": [
     "identity",
     "messageTeamMembers"
@@ -104,18 +59,5 @@
   "validDomains": [
     "{{HOSTNAME}}"
   ],
-  "showLoadingIndicator": false,
-  "webApplicationInfo": {
-    "id": "{{SUPBOT_APP_ID}}",
-    "resource": "{{SUPBOT_APP_URI}}"
-  },
-  "localizationInfo": {
-    "defaultLanguageTag": "en-us",
-    "additionalLanguages": [
-      {
-        "languageTag": "en-gb",
-        "file": "en-gb.json"
-      }
-    ]
-  }
+  "showLoadingIndicator": false
 }
