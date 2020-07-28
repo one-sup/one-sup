@@ -49,7 +49,7 @@ export class SupBot extends TeamsActivityHandler {
                         const dc = await this.dialogs.createContext(context);
                         await dc.beginDialog("help");
                     } else {
-                        await context.sendActivity(`I\'m terribly sorry, but my master hasn\'t trained me to do anything yet...`);
+                        await context.sendActivity(`I\'m terribly sorry, but my creator hasn\'t trained me to do anything yet...`);
                     }
                     break;
                 default:

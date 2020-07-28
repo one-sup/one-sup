@@ -48,7 +48,9 @@ const webpack = require('webpack');
 
 const env = argv["env"];
 if (env === undefined) {
-    require('dotenv').config();
+    const envPath = path.resolve(process.cwd(), "..", "..")
+    console.log(envPath)
+    require('dotenv').config({ path: envPath });
 } else {
     log(`Using custom .env`);
     require('dotenv').config({ path: path.resolve(process.cwd(), env) });

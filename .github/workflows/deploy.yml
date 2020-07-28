@@ -14,14 +14,11 @@ jobs:
       with:
         node-version: '12.x'
 
-
-    - name: Setup Git Metadata
-      run: |      
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
+    - run: rm package.json yarn.lock
 
     - name: Build Teams App
       run: |
+        cd packages/bot
         yarn install
 
     - name: Create Build
