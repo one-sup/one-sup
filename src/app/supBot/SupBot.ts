@@ -18,6 +18,7 @@ const log = debug("msteams");
     process.env.MICROSOFT_APP_ID,
     process.env.MICROSOFT_APP_PASSWORD)
 @PreventIframe("/supBot/aboutSupBot.html")
+
 export class SupBot extends TeamsActivityHandler {
     private readonly conversationState: ConversationState;
     /** Local property for SupMessagesMessageExtension */
@@ -35,14 +36,12 @@ export class SupBot extends TeamsActivityHandler {
         // Message extension SupMessagesMessageExtension
         this._supMessagesMessageExtension = new SupMessagesMessageExtension();
 
-
         this.conversationState = conversationState;
         this.dialogState = conversationState.createProperty("dialogState");
         this.dialogs = new DialogSet(this.dialogState);
         this.dialogs.add(new HelpDialog("help"));
 
         // Set up the Activity processing
-
         this.onMessage(async (context: TurnContext): Promise<void> => {
             // TODO: add your own bot logic in here
             switch (context.activity.type) {
