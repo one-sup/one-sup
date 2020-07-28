@@ -36,3 +36,15 @@ jobs:
         app-name: onesup
         publish-profile: ${{ secrets.APP_SERVICE_PUBLISH_PROFILE }}
         package: packages/bot
+
+    - name: Build Functions
+      run: |
+        cd packages/funcs
+        yarn install
+        yarn build:production
+
+    # - uses: Azure/functions-action@v1
+    #   with:
+    #     app-name: sup-functions
+    #     publish-profile: ${{ secrets.SCM_CREDENTIALS }}
+    #     package: packages/funcs
