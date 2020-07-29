@@ -19,3 +19,32 @@ Work is not always about getting down to business, though. It is a team effort a
 The **One Microsoft** mission–achieving a boundary-less organization–is a noble one, yet can sometimes be hard to organically achieve. As much as we want to, there are still psychological and physical boundaries. However, [especially] in times like these–as we all deal with the pandemic and civil unrest–where we are forced to work remotely and take away some of these boundaries, we should seize the opportunity to rise to the occasion.
 
 “**One S'up**” [pronounced in a mumbling fashion like “what’s up”] aims to connect random sets of people across the company, organisations, and levels for a 15 minute standup. The program does this by keeping track of who have previously been selected to ensure one always meets new people, creates one or more date/time suggestions based on their agendas, and starts a Teams chat with the selected people to introduce them to each other and as a place to have the Teams video meeting.
+
+## This Repo
+
+This repo is a monorepo containing a Teams Bot, an Azure Function app and a core library.
+
+- Run all build processing: `yarn build`
+- Run watcher for build processing: `yarn build:watch`
+- Run all tests: `yarn test`
+
+#### [`packages/bot`](./packages/bot)
+
+The Teams Bot: A TypeScript express server which leans heavily on [@microsoft/teams-js](https://docs.microsoft.com/en-us/javascript/api/overview/msteams-client) and [botbuilder](https://dev.botframework.com).
+
+ - Start: `yarn workspace bot start`
+ - Tests: `yarn workspace bot test`
+
+#### [`packages/core`](./packages/core)
+
+A logic-only TypeScript library used by the other two projects, should be where a lot of the logic lives:
+
+ - Verify: `yarn workspace core build`
+ - Tests: `yarn workspace core test`
+
+#### [`packages/funcs`](./packages/funcs)
+
+A logic-only TypeScript library used by the other two projects, should be where a lot of the logic lives:
+
+ - Verify: `yarn workspace core build`
+ - Tests: `yarn workspace core test`

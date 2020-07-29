@@ -4,14 +4,38 @@ on: pull_request
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+            - 5432:5432
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: "12.x"
 
+      - run: |
+          createdb sup_bot --host=localhost --port=5432 --username=postgres
+          yarn db:create --host=localhost --port=5432 --username=postgres
+        env:
+          PGPASSWORD: postgres
+
       - run: yarn install
+      - run: yarn build
+      - run: yarn test
+        env: 
+          DB_HOST: localhost
+          DB_USER: postgres
+          DB_PASS: postgres
+          DB_NAME: sup_bot
 
       - name: Create Build
         run: |

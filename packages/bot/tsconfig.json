@@ -1,14 +1,12 @@
 {
+  "extends": "@tsconfig/node12/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
-    "moduleResolution": "node",
     "noImplicitAny": false,
     "strictNullChecks": true,
     "jsx": "react",
     "sourceMap": true,
     "experimentalDecorators": true,
-    "resolveJsonModule": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "composite": true
   }
 }

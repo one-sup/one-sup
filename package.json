@@ -5,6 +5,9 @@
   "private": true,
   "scripts": {
     "start": "yarn workspace bot start",
+    "build": "yarn tsc --build",
+    "build:watch": "yarn tsc --build --watch",
+    "test": "yarn workspaces run test",
     "db:create": "psql -d sup_bot -f ./db/schema.sql"
   }
 }

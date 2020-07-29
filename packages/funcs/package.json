@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private":"true",
   "scripts" : {
-    "build": "tsc",
+    "build": "echo 'NOOP'",
     "build:production": "npm run prestart && npm prune --production",
     "watch": "tsc --w",
     "prestart": "npm run build && func extensions install",
