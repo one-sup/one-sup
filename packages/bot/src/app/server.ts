@@ -9,7 +9,6 @@ import * as appInsights from "applicationinsights";
 
 // Initialize debug logging module
 const log = debug("msteams");
-
 log(`Initializing Microsoft Teams Express hosted App...`);
 
 // Initialize dotenv, to use .env file settings if existing
