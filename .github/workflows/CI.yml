@@ -24,7 +24,7 @@ jobs:
 
       - run: yarn db:create --host=localhost --port=5432
         env:
-          PGPASSWORD:postgres
+          PGPASSWORD: postgres
 
       - run: yarn install
       - run: yarn build
