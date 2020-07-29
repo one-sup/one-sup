@@ -1,6 +1,7 @@
 -- TODO:
 -- * Do we want a `participants.updated_at` column and add a UPDATE trigger?
 -- * Are Teams user IDs the same as Graph user IDs?
+-- * Add unique constraints to UUIDs
 
 DROP TABLE IF EXISTS standups_participants;
 DROP TABLE IF EXISTS participants;
