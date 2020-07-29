@@ -4,6 +4,7 @@
   ],
   "private": true,
   "scripts": {
-    "start": "yarn workspace bot start"
+    "start": "yarn workspace bot start",
+    "db:create": "psql -d sup_bot -f ./db/schema.sql"
   }
 }
