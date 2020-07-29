@@ -25,4 +25,3 @@ jobs:
           SUPBOT_APP_ID: ${{ secrets.SUPBOT_APP_ID }}
           SUPBOT_APP_URI: ${{ secrets.SUPBOT_APP_URI }}
 
-      - run: yarn test
