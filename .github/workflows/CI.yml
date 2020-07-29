@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: "12.x"
 
-      - run: yarn db:create --host=localhost --port=5432
+      - run: yarn db:create --host=localhost --port=5432 --username=postgres
         env:
           PGPASSWORD: postgres
 
