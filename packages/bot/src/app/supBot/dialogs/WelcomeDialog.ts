@@ -1,4 +1,3 @@
-
 export default {
   "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
   "type": "AdaptiveCard",

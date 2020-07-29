@@ -2,8 +2,8 @@ import { BotDeclaration, MessageExtensionDeclaration, PreventIframe } from "expr
 import * as debug from "debug";
 import { DialogSet, DialogState } from "botbuilder-dialogs";
 import { StatePropertyAccessor, CardFactory, TurnContext, MemoryStorage, ConversationState, ActivityTypes, TeamsActivityHandler } from "botbuilder";
-import HelpDialog from "./dialogs/HelpDialog";
 import WelcomeCard from "./dialogs/WelcomeDialog";
+import {commands} from "./dialogs/commands"
 
 // Initialize debug logging module
 const log = debug("msteams");
@@ -32,24 +32,32 @@ export class SupBot extends TeamsActivityHandler {
         this.conversationState = conversationState;
         this.dialogState = conversationState.createProperty("dialogState");
         this.dialogs = new DialogSet(this.dialogState);
-        this.dialogs.add(new HelpDialog("help"));
 
         // Set up the Activity processing
 
+        for (const command of commands) {
+            this.dialogs.add(new command.dialog(command.prefix));
+        }
+
         this.onMessage(async (context: TurnContext): Promise<void> => {
-            // TODO: add your own bot logic in here
             switch (context.activity.type) {
                 case ActivityTypes.Message:
                     let text = TurnContext.removeRecipientMention(context.activity);
                     text = text.toLowerCase();
+
+                    for (const command of commands) {
+                        if (text.startsWith(command.prefix)) {
+                            const dc = await this.dialogs.createContext(context);
+                            await dc.beginDialog(command.prefix);
+                            return
+                        }
+                    }
+
                     if (text.startsWith("hello")) {
                         await context.sendActivity("Oh, hello to you as well!");
                         return;
-                    } else if (text.startsWith("help")) {
-                        const dc = await this.dialogs.createContext(context);
-                        await dc.beginDialog("help");
                     } else {
-                        await context.sendActivity(`I\'m terribly sorry, but my creator hasn\'t trained me to do anything yet...`);
+                        await context.sendActivity(`...`);
                     }
                     break;
                 default:
