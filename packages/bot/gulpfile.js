@@ -88,7 +88,6 @@ const watches = () => {
     // all other watches
     watch(
         config.watches,
-        series('webpack:server')
     );
 
     watch(
@@ -185,11 +184,7 @@ task('webpack:client', (callback) => {
     _webpack(1, callback);
 });
 
-task('webpack:server', (callback) => {
-    _webpack(0, callback);
-});
-
-task('webpack', parallel("webpack:client", "webpack:server"));
+task('webpack', parallel("webpack:client"));
 
 
 /**

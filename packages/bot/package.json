@@ -4,7 +4,8 @@
   "description": "Generate a Microsoft Teams application.",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "gulp build",
+    "watch": "nodemon --watch 'dist/*' --ignore 'src' -x node dist/server.js",
+    "build": "tsc && gulp build",
     "debug": "gulp serve --debug",
     "test": "jest",
     "coverage": "jest --coverage"

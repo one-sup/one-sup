@@ -15,7 +15,7 @@ jobs:
 
       - name: Create Build
         run: |
-          gulp build
+          yarn workspace bot run build
         env: 
           PACKAGE_NAME: onesup
           HOSTNAME: onesup.azurewebsites.net
@@ -25,4 +25,3 @@ jobs:
           SUPBOT_APP_ID: ${{ secrets.SUPBOT_APP_ID }}
           SUPBOT_APP_URI: ${{ secrets.SUPBOT_APP_URI }}
 
-      - run: yarn test
