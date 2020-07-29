@@ -1,12 +1,21 @@
 import { Dialog, DialogContext, DialogTurnResult } from "botbuilder-dialogs";
+import { commands } from "./commands"
 
-export default class HelpDialog extends Dialog {
+export class HelpDialog extends Dialog {
     constructor(dialogId: string) {
         super(dialogId);
     }
 
     public async beginDialog(context: DialogContext, options?: any): Promise<DialogTurnResult> {
-        context.context.sendActivity(`I'm just a friendly but rather stupid bot, and right now I don't have any valuable help for you!`);
+        const otherCommands = commands.filter(c => c.prefix !== "help")
+        await context.context.sendActivity(`Welcome, available commands: ${otherCommands.map(c => c.prefix).join(", ")}`);
+
         return await context.endDialog();
     }
 }
+
+export const helpCommand = {
+    dialog: HelpDialog,
+    prefix: "help"
+  }
+  

@@ -11,12 +11,12 @@
     "termsOfUseUrl": "https://{{HOSTNAME}}/tou.html"
   },
   "name": {
-    "short": "sup-teams-bot",
-    "full": "sup-teams-bot"
+    "short": "S'up Bot",
+    "full": "S'up Bot"
   },
   "description": {
-    "short": "TODO: add short description here",
-    "full": "TODO: add full description here"
+    "short": "Serendipitous Stand-Ups",
+    "full": "The One S’up program is …"
   },
   "icons": {
     "outline": "icon-outline.png",
@@ -44,6 +44,18 @@
             {
               "title": "Help",
               "description": "Shows help information"
+            },
+            {
+              "title": "Join",
+              "description": "Participate in s'ups"
+            },
+            {
+              "title": "Leave",
+              "description": "Stop being set up for s'ups"
+            },
+            {
+              "title": "Status",
+              "description": "Find out your enrollment status"
             }
           ]
         }
