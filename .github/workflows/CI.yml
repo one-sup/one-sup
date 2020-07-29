@@ -15,7 +15,7 @@ jobs:
 
       - name: Create Build
         run: |
-          gulp build
+          yarn workspace bot run build
         env: 
           PACKAGE_NAME: onesup
           HOSTNAME: onesup.azurewebsites.net

@@ -7,7 +7,6 @@ import * as debug from "debug";
 import * as compression from "compression";
 import * as appInsights from "applicationinsights";
 
-
 // Initialize debug logging module
 const log = debug("msteams");
 
@@ -15,12 +14,10 @@ log(`Initializing Microsoft Teams Express hosted App...`);
 
 // Initialize dotenv, to use .env file settings if existing
 // tslint:disable-next-line:no-var-requires
-require("dotenv").config();
-
+require('dotenv').config({ path: path.resolve(process.cwd(), "..", "..", ".env") });
 
 // Set up app insights
 appInsights.setup(process.env.APPINSIGHTS_INSTRUMENTATIONKEY).start();
-
 
 // The import of components has to be done AFTER the dotenv config
 import * as allComponents from "./TeamsAppsComponents";

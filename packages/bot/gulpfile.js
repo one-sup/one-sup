@@ -185,10 +185,6 @@ task('webpack:client', (callback) => {
     _webpack(1, callback);
 });
 
-task('webpack:server', (callback) => {
-    _webpack(0, callback);
-});
-
 task('webpack', parallel("webpack:client", "webpack:server"));
 
 

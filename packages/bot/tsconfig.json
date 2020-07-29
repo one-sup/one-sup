@@ -8,6 +8,7 @@
     "jsx": "react",
     "sourceMap": true,
     "experimentalDecorators": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "outDir": "dist"
   }
 }
