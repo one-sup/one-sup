@@ -6,3 +6,4 @@ export async function answer(client: Client) {
   );
   return res.rows[0].teamsID;
 }
+
