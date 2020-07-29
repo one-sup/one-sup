@@ -46,5 +46,5 @@ jobs:
     # - uses: Azure/functions-action@v1
     #   with:
     #     app-name: sup-functions
-    #     publish-profile: ${{ secrets.SCM_CREDENTIALS }}
+    #     publish-profile: ${{ secrets.FUNC_PUBLISH_PROFILE }}
     #     package: packages/funcs
