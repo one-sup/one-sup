@@ -15,7 +15,7 @@ describe("core", () => {
     client = await getClient();
     await client.query("BEGIN");
     await client.query(
-      "INSERT INTO participants(teams_id) VALUES($1) RETURNING id",
+      "INSERT INTO participants(teams_id) VALUES($1) RETURNING *",
       ["11111111-2222-3333-4444-555555555555"]
     );
   });
