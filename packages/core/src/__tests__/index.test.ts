@@ -1,6 +1,6 @@
-import { answer } from "../index";
+import { createParticipantSet, getParticipantSet } from "../index";
 import { getClient } from "../db";
-import { Client } from "pg";
+import { Client, QueryResult } from "pg";
 
 describe("core", () => {
   let client: Client;
@@ -43,9 +43,51 @@ describe("core", () => {
    * Actual tests.
    */
 
-  it("works", async () => {
-    expect(await answer(client)).toEqual(
-      "11111111-2222-3333-4444-555555555555"
-    );
+  describe(createParticipantSet, () => {
+    it("works", async () => {
+      const inserted: QueryResult[] = await Promise.all(
+        Array.apply(null, Array(3)).map((_, x) =>
+          client.query(
+            "INSERT INTO participants(teams_id) VALUES($1) RETURNING *",
+            [`${x}0000000-0000-0000-0000-000000000000`]
+          )
+        )
+      );
+      const participantIDs = inserted.map((result) => result.rows[0].id);
+
+      const standupID = await createParticipantSet(client, participantIDs);
+      const x = await getParticipantSet(client, standupID);
+
+      const associatedParticipantIDs = (
+        await client.query(
+          `
+            SELECT participant_id FROM standups_participants WHERE standup_id = $1
+          `,
+          [standupID]
+        )
+      ).rows.map((row) => row.participant_id);
+      expect(associatedParticipantIDs).toEqual(participantIDs);
+    });
+  });
+
+  describe(getParticipantSet, () => {
+    it("works", async () => {
+      const inserted: QueryResult[] = await Promise.all(
+        Array.apply(null, Array(3)).map((_, x) =>
+          client.query(
+            "INSERT INTO participants(teams_id) VALUES($1) RETURNING *",
+            [`${x}0000000-0000-0000-0000-000000000000`]
+          )
+        )
+      );
+      const participantIDs = inserted.map((result) => result.rows[0].id);
+      const standupID = await createParticipantSet(client, participantIDs);
+
+      const associatedParticipantIDs = await getParticipantSet(
+        client,
+        standupID
+      );
+      expect(associatedParticipantIDs).toEqual(participantIDs);
+    });
   });
 });
