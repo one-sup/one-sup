@@ -99,6 +99,7 @@
     ],
     "coverageReporters": [
       "text"
-    ]
+    ],
+    "testPathIgnorePatterns": ["/node_modules/", "dist"]
   }
 }
