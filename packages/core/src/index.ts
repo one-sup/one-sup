@@ -1,1 +1,3 @@
-console.log("hello world")
+export function answer() {
+  return 42;
+}
